@@ -23,6 +23,15 @@ function createRedSquare(div) {
 	div.style.paddingBottom = '11.1%';
 }
 
+// create random colored squares
+function createRandomColorSquare(div) {
+	var colorArr = ['red', 'blue', 'orange', 'green', 'yellow', 'pink', 'purple', 'aqua', 'brown', 'teal'];
+	div.style.backgroundColor = colorArr[(Math.floor(Math.random() * colorArr.length) +1)]
+	div.style.width = '11.1%';
+	div.style.float = 'left';
+	div.style.paddingBottom = '11.1%';
+}
+
 //get the body and append a square on it
 var bodyEl = document.querySelectorAll('body');
 bodyEl[0].setAttribute('id', 'startPoint');
@@ -33,7 +42,7 @@ newDiv.setAttribute('id', 'firstDiv');
 
 // a table of 9 columns and 6 rows is 54 squares
 //odd is black, red is even
-function createDiv() {
+function createBlackRedDiv() {
 	for(var i = 1; i < 55; i ++) {
 		var divEl = document.createElement('div');
 		newDiv.appendChild(divEl);
@@ -47,4 +56,14 @@ function createDiv() {
 	}
 }
 
-createDiv();
+// createBlackRedDiv();
+
+function createRandomDiv() {
+	for(var i = 1; i < 55; i ++) {
+		var divEl = document.createElement('div');
+		newDiv.appendChild(divEl);
+		createRandomColorSquare(divEl);
+	}
+}
+
+createRandomDiv()
